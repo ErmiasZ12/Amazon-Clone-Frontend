@@ -19,7 +19,7 @@ function ProductCard({product}) {
           <small> {rating.count}</small>
         </div>
         <div>
-          <CurrencyFormat amount={price}/>  
+          <CurrencyFormat amount = {price}/>  
         </div>
         <button className= {classes.button}> add to cart </button>
       </div>
