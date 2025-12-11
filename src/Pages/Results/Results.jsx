@@ -23,21 +23,25 @@ function results() {
   return (
     <LayOut>
      <section>
-        <h1 style = {{ padding:"30px"}} >results </h1>
+        <h1 style = {{ padding:"30px"}} >Results </h1>
         <p style={{padding:"30px"}}>Category / {categoryName}</p>
         <hr />
+        {isLoading ? (
+            <Loader /> 
+        ) : (
         <div className= {classes.products_container}>
             {results?.map((product) => (
 
-                <ProductCard key={product.id}
-
+                <ProductCard 
+                key={product.id}
+                renderAdd = {true}
                 product = {product}
                 />
             ))}
         </div>
+        )}
         </section>  
        </LayOut>
-    
   )
 }
 
