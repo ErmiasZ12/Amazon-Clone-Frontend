@@ -2,7 +2,7 @@
 import { Type } from "./action.type";
 
 export const initialState = {
-  basket: [],
+  basket:[],
 };
 
 export const reducer = (state, action) => {

@@ -11,10 +11,10 @@ import { DataContext } from '../DataProvider/DataProvider';
 
 
 function Header() {
-    const [{basket}, dispatch] = useContext(DataContext);
-    // console.log(basket.lenght);
-  return (
-    <>
+   const [{basket}, dispatch] = useContext(DataContext);
+  //  console.log(basket.length);
+   return (
+    <section className={classes.fixed}>
     <section>
       <div className={classes.header__container}>
         <div className={classes.logo__container}>
@@ -60,13 +60,13 @@ function Header() {
           </a>
           <a href="/cart" className={classes.cart}>
             <BiCart size={35} />
-            <span> {basket.length}</span>
+            <span>{basket.length}</span>
           </a>
         </div>
       </div>
     </section>
     <LowerHeader/>
-    </>
+    </section>
   );
 }
 

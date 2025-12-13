@@ -2,9 +2,6 @@ import React from "react";
 import Routing from "./Router";
 
 function App() {
-  return (
-    <Routing/>
-  )
+  return <Routing/>  
 }
-
 export default App;
