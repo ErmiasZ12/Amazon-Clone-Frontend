@@ -17,6 +17,7 @@ function Header() {
     return item.amount +amount
   },0)
    return (
+    <>
     <section className={classes.fixed}>
     <section>
       <div className={classes.header__container}>
@@ -53,7 +54,7 @@ function Header() {
               <option value="">EN</option>
             </select>
           </Link>
-          <a href="">
+          <a href="/auth">
             <p> Sign In</p>
             <span> Account & List</span>
           </a>
@@ -70,6 +71,7 @@ function Header() {
     </section>
     <LowerHeader/>
     </section>
+    </>
   );
 }
 

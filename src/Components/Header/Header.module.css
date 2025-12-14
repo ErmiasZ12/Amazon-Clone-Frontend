@@ -85,6 +85,11 @@
 .order__container p{
     font-size: 10px;
 }
+.language{
+    width: 100px;
+    display: flex;
+    padding: 10px;
+}
 .language select {
     background: #1a1a1a;
     border: none;
@@ -107,6 +112,7 @@
 }
 .order__container a:hover,
 .delivery:hover,
+.lower__container ul li:hover,
 .logo__container ul li:hover {
     border:1px solid white;
     border-radius:3px

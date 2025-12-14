@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import classes from './Results.module.css'
 import LayOut from '../../Components/LayOut/LayOut'
 import { useParams } from 'react-router-dom'
@@ -6,20 +6,23 @@ import axios from "axios"
 import { productUrl } from '../../API/endPoints'
 import ProductCard from '../../Components/Product/ProductCard'
 
-function results() {
-    const[results, setResults] = useState([])
-    const {categoryName} = useParams()
+function Results() {
+      const {categoryName} = useParams()
+    //   console.log(categoryName);
+       const[results, setResults] = useState([])
+ 
     useEffect(() => {
  axios.get(`${productUrl}/products/category/${categoryName}`)
         .then((res)=>{
+            // console.log(res);
             setResults(res.data)
-            console.log(res.data) 
+            // console.log(res.data) 
         }) .catch((err)=>{console.log(err);
 })
 
-    },
-[])
-   
+    }, [])   
+
+
   return (
     <LayOut>
      <section>
@@ -47,4 +50,4 @@ function results() {
   )
 }
 
-export default results
+export default Results
