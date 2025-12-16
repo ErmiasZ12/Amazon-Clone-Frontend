@@ -29,7 +29,8 @@ setIsLoading(false)
 },[])
   return (
     <LayOut> 
-      {isloading? (<Loader/>) :(<ProductCard 
+      {isloading? (<Loader/>):(<ProductCard 
+      key={product.Id}
       product ={product}
       flex = {true}
       renderDesc ={true}

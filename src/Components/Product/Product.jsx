@@ -12,6 +12,7 @@ function Product() {
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products")
       .then((res) => {
+        // console.log(res)
         setProducts(res.data);
         setIsLoading(false)
       })

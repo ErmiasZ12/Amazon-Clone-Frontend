@@ -2,12 +2,12 @@ export const categoryInfos = [
   {
     title: "Electronics",
     name: "electronics",
-    imgLink: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_t.png",
+    imgLink: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png",
   },
   {
     title: "Discover fashion trends",
     name: "women's clothing",
-    imgLink: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_t.png",
+    imgLink: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2t.png",
   },
   {
     title: "men's clothing",

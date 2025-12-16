@@ -1,33 +1,25 @@
 
- .card__container {
-    width: 250px;
-    height: 420px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-    padding: 15px;
-    border-radius: 10px;
-    color: black;
-    text-decoration: none;
-    position: relative;
+.card__container {
+  width: 100%;
+  max-width: 250px;          /* fixed card width */
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  padding: 10px;
+  /* border-radius: 6px; */
+  box-sizing: border-box;
+  position: relative;
 }
 
 .card__container:hover .button{
-    display:block;
+    display: block;
 }
-
 .card__container img {
     padding: 10px;
     width: 100%;
-    height: 200px;
+    height: 160px;
     object-fit: contain;
 }
-
-.rating {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.button {
+.button{
     display: none;
     padding: 5px 10px;
     font-weight: 700;
@@ -35,54 +27,92 @@
     cursor: pointer;
     background-color: var(--primary-color);
     width: 100%;
+    margin: 10px 0;
     border-radius: 30px;
     position: absolute;
     bottom: 0;
     left: 0;
 }
-
 .button:hover{
     background-color: var(--primary-shade);
-} 
-.products_container{
-    display: grid;
-     grid-template-columns: repeat(4,250px);
-    max-width: 100%;
-    margin: 100px auto ;
-    gap: 30px;
-    justify-items: center;
-    padding: 0 20px;
 }
-.products_container section{
-    margin: 0 auto;
-}
-.product__flexed {
-    box-shadow: none;
-    height: auto;
+.rating{
     display: flex;
-    gap: 50px;
-    width: 100%;
+    align-items: center;
+    padding: 10px 0px;
 }
-.product__flexed h3 {
-    padding: 20px 0px;
-}
-.product__flexed .button {
-    display: block;
-    position: static;
-    width: 150px;
-    margin-right: 40px;
-}
-.product__flexed {
-    height: 50vh;
-}
-.product__flexed img {
-    width: 300px !important;
-    height: auto;
+.products_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  /* CENTER THE GRID */
+  max-width: 1200px;
+  margin: 100px auto 0 auto;   /* centers left + right */
+  padding: 0 20px;  /* soft margin on both sides */
+  box-sizing: border-box;
+  overflow: visible;  /* prevent unwanted scroll */
 }
 
-@media screen and (max-width: 768px) {
-    .product__flexed {
-        display: flex;
-        flex-direction: column;
-    }
-} 
+.products_container section {
+    margin: 0 auto;
+}
+.product__flexed  {
+  box-shadow: none;
+  /* height: auto; */
+  display: flex;
+  gap: 50px;
+  width: 100%;
+}
+.product__flexed h3 {
+  padding: 20px 0px;
+}
+.product__flexed .button{
+  display: block;
+  position: static;
+  width: 150px;
+  margin-right: 40px;
+}
+/* FIX FLEX LAYOUT IN CART */
+.product__flexed {
+  display: flex;
+  gap: 30px;
+  width: 40% !important;
+  height: auto !important;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.product__flexed img {
+  width: 200px !important;
+  /* height: 300px; */
+}
+/* --- RESPONSIVE BREAKPOINTS --- */
+/* 4 cards per row */
+@media (max-width: 1200px) {
+  .products_container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* 3 cards per row */
+@media (max-width: 992px) {
+  .products_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* 2 cards per row */
+@media (max-width: 768px) {
+  .products_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+.product__flexed{
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* 1 card per row (mobile) */
+@media (max-width: 480px) {
+  .products_container {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+}
