@@ -48,7 +48,7 @@ const decrement =(id) => {
                 <button className={classes.btn} onClick={() => increment(item)}>
                   <IoIosArrowUp size={20} />
                 </button>
-                <spam> {item.amount}</spam>
+                <span> {item.amount}</span>
                 <button
                   className={classes.btn}
                   onClick={() => decrement(item.id)}
