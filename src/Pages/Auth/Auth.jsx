@@ -2,7 +2,7 @@
 
 import React, { useState, useContext } from "react";
 import classes from "./SignUp.module.css";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import {
   signInWithEmailAndPassword,
@@ -11,6 +11,7 @@ import {
 import { ClipLoader } from "react-spinners";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
+import { colors } from "@mui/material";
 
 function Auth() {
   const [email, setEmail] = useState("");
@@ -23,6 +24,9 @@ function Auth() {
 
   const [{user}, dispatch] = useContext(DataContext);
   const navigate = useNavigate()
+  const navStateData = useLocation();
+  // console.log(navStateData);
+
 
   const signInHandler = async (e) => {
     e.preventDefault();
@@ -35,7 +39,7 @@ function Auth() {
         type: Type.SET_USER,
         user: userInfo.user,
       });
-       navigate("/")
+       navigate(navStateData?.state?.redirect || "/")
     } catch (err) {
       setError(err.message);
      
@@ -60,7 +64,7 @@ function Auth() {
         type: Type.SET_USER,
         user: userInfo.user,
       }); 
-      navigate("/");
+      navigate(navStateData?.state?.redirect || "/" );
     } catch (err) {
       setError(err.message);
         
@@ -71,15 +75,29 @@ function Auth() {
 
   return (
     <section className={classes.login}>
+      {/* logo  */}
       <Link to="/">
         <img
           src="https://purepng.com/public/uploads/large/amazon-logo-s3f.png"
           alt="Amazon"
         />
       </Link>
+      {/* form  */}
 
       <div className={classes.login__container}>
         <h1>Sign In</h1>
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >
+            {navStateData?.state?.msg}
+          </small>
+        )}
 
         <form>
           <div>
@@ -112,7 +130,8 @@ function Auth() {
 
         <p>
           By Signing-in you agree to the AMAZON FAKE CLONE Conditions of Use and
-          Sale. Please see our privacy notice, our Cookies Notice and our Interest-Based Ads Notice
+          Sale. Please see our privacy notice, our Cookies Notice and our
+          Interest-Based Ads Notice
         </p>
 
         <button
