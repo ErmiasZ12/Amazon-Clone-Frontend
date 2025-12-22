@@ -12,9 +12,10 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../Utility/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { Type } from "../../Utility/action.type";
 
 function Payment() {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   // Hooks
   const [cardError, setCardError] = useState(null);
   const [processing, setProcessing] = useState(false);

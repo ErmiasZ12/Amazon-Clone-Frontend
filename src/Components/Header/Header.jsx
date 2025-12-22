@@ -55,7 +55,7 @@ function Header() {
               <option>All</option>
            </select>
             <input type="text" />
-            <BsSearch size={25} />
+            <BsSearch size={38} />
              
           </div>
 
